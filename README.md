@@ -10,6 +10,8 @@
 ### Association
 - has_many :groups,though:groups_users
 - has_many :messages
+- has_many :groups_users
+
 
 
 
@@ -20,7 +22,8 @@
 
 ### Association
 - has_many :users,though:groups_users
-- has_many :message
+- has_many :messages
+- has_many :groups_users
 
 
 ## groups_usersテーブル
@@ -39,8 +42,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-|image|string|index: true,null: false, unique: true|
+|image|string|null: false|
 |user_id|integger|null: false, foreign_key: true|
+|group_id|integger|null: false, foreign_key: true|
 
 ### Association
 - belongs to :user
