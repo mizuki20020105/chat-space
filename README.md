@@ -14,16 +14,16 @@
 
 
 
-
 ## groups table
 |Column|Type|Options|
 |------|----|-------|
-|name|string|index: true,null: false, unique: true|
+|groups＿name|string|index: true,null: false, unique: true|
 
 ### Association
 - has_many :users,though:groups_users
 - has_many :messages
 - has_many :groups_users
+
 
 
 ## groups_usersテーブル
@@ -38,11 +38,12 @@
 - belongs_to :user
 
 
+
 ## messages table
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
-|image|string|null: false|
+|text|text|
+|image|string|
 |user_id|integger|null: false, foreign_key: true|
 |group_id|integger|null: false, foreign_key: true|
 
