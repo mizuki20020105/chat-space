@@ -20,5 +20,5 @@
 ### Association
 - has_many :groups,though:members
 - has_many :messages
--has_many :members
+- has_many :members
 
