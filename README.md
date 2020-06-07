@@ -16,10 +16,11 @@
 ## groups table
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
+|name|string|index: true,null: false, unique: true|
 
 ### Association
-- has_many :users
+- has_many :users,though:groups_users
+- has_many :message
 
 
 ## groups_usersテーブル
@@ -38,8 +39,10 @@
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
+|image|string|index: true,null: false, unique: true|
 |user_id|integger|null: false, foreign_key: true|
 
 ### Association
--belongs to :user
+- belongs to :user
+- belongs to :group
 
