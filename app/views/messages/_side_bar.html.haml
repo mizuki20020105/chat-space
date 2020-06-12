@@ -3,12 +3,16 @@
     .Side-bar__user_name__top_items
       .Side-bar__user_name__top_items__name
         masa
-      = link_to "#", class: "Side-bar__user_name__top_items__icons" do
+      = link_to new_group_path, class: "Side-bar__user_name__top_items__icons" do
         = icon('fas', 'edit')  
       =link_to "#", class:"Side-bar__user_name__top_items__icons" do
         = icon('fas','cog')
   .Side-bar__group_list
-    .Side-bar__group_list__name
-      teachcamp
-    .Side-bar__group_list__messages
-      まだメッセージがありません
+    - current_user.groups.each do |group|
+      .Side-bar__group
+        = link_to '#' do
+          .Side-bar__group_list__name
+            = group.name
+          .Side-bar__group_list__messages
+            まだメッセージがありません   
+ 
