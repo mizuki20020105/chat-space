@@ -1,39 +1,25 @@
 .Chat-main
   .Chat-main__group_info
     .Chat-main__group_info__left_box
-      test
-      .Chat-main__group_info__left_box__bottom_box
-        Member:masa
-    = link_to "#", class:"Chat-main__group_info__right_box" do
-      Edit
-      
-  .Chat-main__message_name
-    .Chat-main__message_name__box
-      .Chat-main__message_name__box__name
-        masa
-        .Chat-main__message_name__box__name__time
-          2019/11/20(web) 17:43:01 
-      .Chat-main__message_name__box__message
-        おはよう！
-    .Chat-main__message_name__box
-      .Chat-main__message_name__box__name
-        masa
-        .Chat-main__message_name__box__name__time
-          2019/11/20(web) 17:43:34
-      .Chat-main__message_name__box__message
-        今日は夜から雨
-    .Chat-main__message_name__box
-      .Chat-main__message_name__box__name
-        masa
-        .Chat-main__message_name__box__name__time
-          2019/11/20(web) 17:43:56
-      .Chat-main__message_name__box__message
-        明日は朝から曇り
+      = @group.name
+      %ul.Chat-main__group_info__left_box__bottom_box
+        Menber:
+        %li.Chat-main__group_info__left_box__bottom_box1
+          - @group.users.each do |user|
+            = user.name
+    .Chat-main__group_info__right_box       
+      = link_to edit_group_path(@group.id) do
+        Edit
+
+  .Chat-main__field
+    = render @messages    
+ 
   .Chat-main__message_form
-    .Chat-main__message_form__box
-      %input{type:"text", class:"Chat-main__message_form__box__text",placeholder:"type amessage"}
-      %label{class:"Chat-main__message_form__box__text__btn"}
-        =icon('far','image')
-        %input{type: "file",class:"Chat-main__message_form__box__text__btn__deret"}
-    %input{type:"submit",class:"Chat-main__message_form__submit_btn" }
-  
+    =form_with model: [@group, @message], html: {class: "Form"}, local:true do |f|
+      .Chat-main__message_form__box
+        = f.text_field :content, class:"Chat-main__message_form__box__text",placeholder:"type amessage"
+        = f.label :image,class:"Chat-main__message_form__box__text__btn" do
+          =icon('far','image')
+          = f.file_field  "file",class:"Chat-main__message_form__box__text__btn__deret"
+      = f.submit "send",class:"Chat-main__message_form__submit_btn"
+    
