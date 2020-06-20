@@ -14,12 +14,12 @@
   .Chat-main__field
     = render @messages    
  
-  .Chat-main__message_form
-    =form_with model: [@group, @message], html: {class: "Form"}, local:true do |f|
-      .Chat-main__message_form__box
-        = f.text_field :content, class:"Chat-main__message_form__box__text",placeholder:"type amessage"
-        = f.label :image,class:"Chat-main__message_form__box__text__btn" do
+  .Chat-main__messageform
+    = form_with model: [@group, @message], html: {class: "Chat-main__messageform__Form"}, local:true do |f|
+      .Chat-main__messageform__box
+        = f.text_field :content, class:"Chat-main__messageform__box__text",placeholder:"type a message"
+        = f.label :image,class:"Chat-main__messageform__box__text__btn" do
           =icon('far','image')
-          = f.file_field  "file",class:"Chat-main__message_form__box__text__btn__deret"
-      = f.submit "send",class:"Chat-main__message_form__submit_btn"
+          = f.file_field  "file",class:"Chat-main__messageform__box__text__btn__deret"
+      = f.submit "send",class:"Chat-main__messageform__submitbtn"
     
