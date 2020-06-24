@@ -48,6 +48,7 @@ $(function(){
       contentType: false
     })
     .done(function(data){
+      console.log(data)
       let html = buildHTML(data);
       $('.Chat-main__field').append(html);
       $('form')[0].reset();

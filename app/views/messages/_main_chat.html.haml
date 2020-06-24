@@ -19,7 +19,7 @@
       .Chat-main__messageform__box
         = f.text_field :content, class:"Chat-main__messageform__box__text",placeholder:"type a message"
         = f.label :image,class:"Chat-main__messageform__box__text__btn" do
-          =icon('far','image')
+          =icon('far','image',class: 'icon')
           = f.file_field :image ,class:"Chat-main__messageform__box__text__btn__deret"
       = f.submit "Send",class:"Chat-main__messageform__submitbtn"
     
