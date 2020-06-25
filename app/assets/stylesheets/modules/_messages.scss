@@ -46,8 +46,8 @@
   &__field {
     overflow: scroll;
     height: calc(100% - 190px);
+    background-color: #fafafa;
     .Chat__message_name {
-      background-color: #fafafa;
       width: 100%;
       &__box{
         margin-left: 40px;
